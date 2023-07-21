@@ -1,0 +1,34 @@
+<div class="container mt-4">
+    <h3>Task List</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Due Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <h1></h1>
+      <tbody>
+        <tr *ngFor="let task of tasks$ | async">
+          <td>{{ task.user_id }}</td>
+          <td>{{ task.title }}</td>
+          <td>{{ task.desc }}</td>
+          <td>{{ task.due_date | date }}</td>
+          <td>{{ task.status }}</td>
+          <td>
+            <button class="btn btn-sm btn-primary mx-3" >Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteTask(task._id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- <ng-template #loading>
+    <p>Loading tasks...</p>
+  </ng-template>
+   -->
